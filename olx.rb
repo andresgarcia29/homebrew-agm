@@ -5,20 +5,20 @@
 class Olx < Formula
   desc "A CLI tool for OLX"
   homepage "https://github.com/andresgarcia29/olx-cli"
-  version "1.1.5"
+  version "1.2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/andresgarcia29/cli-olx/releases/download/v1.1.5/cli-olx_Darwin_x86_64.tar.gz"
-      sha256 "4481e0709881a8352c100040db28162e53058860ef6631c9cf692e18abd75dbc"
+      url "https://github.com/andresgarcia29/cli-olx/releases/download/v1.2.0/cli-olx_Darwin_x86_64.tar.gz"
+      sha256 "b45602bce694184fd4840b385a1274d4a1d568a12a6a4a82e1243a7bbbd69824"
 
       def install
         bin.install "olx"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/andresgarcia29/cli-olx/releases/download/v1.1.5/cli-olx_Darwin_arm64.tar.gz"
-      sha256 "05281a708c1f70fe901a429a1602bc2b3f8f098f24b967b57b283b8665c035a4"
+      url "https://github.com/andresgarcia29/cli-olx/releases/download/v1.2.0/cli-olx_Darwin_arm64.tar.gz"
+      sha256 "1bfc97be1c8f030d2dcc2f5ff879155efde647ffeb15d7b29dd35f1887fe942c"
 
       def install
         bin.install "olx"
@@ -29,8 +29,8 @@ class Olx < Formula
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/andresgarcia29/cli-olx/releases/download/v1.1.5/cli-olx_Linux_x86_64.tar.gz"
-        sha256 "10435b654d62d02c83c6fcfc07f64536fd53cb2785b0a707c05270c905acd4a4"
+        url "https://github.com/andresgarcia29/cli-olx/releases/download/v1.2.0/cli-olx_Linux_x86_64.tar.gz"
+        sha256 "611852a207ceca0f92f494f44db79b6f82a17c922d520b41f90439a98af7f151"
 
         def install
           bin.install "olx"
@@ -39,8 +39,8 @@ class Olx < Formula
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/andresgarcia29/cli-olx/releases/download/v1.1.5/cli-olx_Linux_arm64.tar.gz"
-        sha256 "1df1fb463625e26ad57ee7f38dbe4099cb8f54955faec6173cd84c94c9b287ec"
+        url "https://github.com/andresgarcia29/cli-olx/releases/download/v1.2.0/cli-olx_Linux_arm64.tar.gz"
+        sha256 "f423993aef9db70bceb1194c1e69ba2af464d5e0a39866766b898123d5ffd88e"
 
         def install
           bin.install "olx"
