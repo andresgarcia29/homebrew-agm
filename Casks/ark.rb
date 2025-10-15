@@ -3,7 +3,7 @@ cask "ark" do
   name "ark"
   desc "A powerful CLI tool for AWS and Kubernetes operations"
   homepage "https://github.com/andresgarcia29/ark-cli"
-  version "0.10.2"
+  version "0.10.3"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,22 +14,22 @@ cask "ark" do
   on_macos do
     on_intel do
       url "https://github.com/andresgarcia29/ark-cli/releases/download/v#{version}/ark-cli_#{version}_darwin_amd64.tar.gz"
-      sha256 "9f69373f5c2938624785d2fd31e137796951ef46c6f122b1bfba52e04edfd83a"
+      sha256 "50ac59f1c1ddf74e17d6e966846903cf2626bf9e19139f4511b4ce079524e9db"
     end
     on_arm do
       url "https://github.com/andresgarcia29/ark-cli/releases/download/v#{version}/ark-cli_#{version}_darwin_arm64.tar.gz"
-      sha256 "76b82872bb4cb41c87aa9cd5eb1d9c47750242e654746f27115e2e8640f448ca"
+      sha256 "2b57a67df38f2f4e02b2c2a04628d2ea3a579a357649e90c7cb9e062451bd931"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/andresgarcia29/ark-cli/releases/download/v#{version}/ark-cli_#{version}_linux_amd64.tar.gz"
-      sha256 "99e462d86966f9405a1587bd3b3f1241a04cd4410b77fea40729b148e0630885"
+      sha256 "654f8779a368d2364e931c7a7a5371be54ff3f1b26aac6654c7efe15e5a62bfe"
     end
     on_arm do
       url "https://github.com/andresgarcia29/ark-cli/releases/download/v#{version}/ark-cli_#{version}_linux_arm64.tar.gz"
-      sha256 "107e8264c51ea3d74a1ced495504b2f60005f37bb9eecb15e89ebeaaf8677c01"
+      sha256 "a202a4677a8f90ec9088b300df40de9df7f5ccbc9579addf4631e6d1271ef7c1"
     end
   end
 
