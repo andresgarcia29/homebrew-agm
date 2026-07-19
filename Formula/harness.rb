@@ -2,26 +2,26 @@
 class Harness < Formula
   desc "Harness de ingeniería agéntica multi-repo: wizard de init, panel local y generador determinista"
   homepage "https://github.com/andresgarcia29/harness-daemon"
-  version "0.52.4"
+  version "0.52.5"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/andresgarcia29/harness-daemon/releases/download/v0.52.4/harnessd-darwin-arm64"
-      sha256 "d72c9f80329643c6cd5892cfea0bac645ba58ab9d942fceee470058286b7cdd5"
+      url "https://github.com/andresgarcia29/harness-daemon/releases/download/v0.52.5/harnessd-darwin-arm64"
+      sha256 "cf7e57c70bff8d33aa712ee20cdafbfb9ad91d3199333126592aac81c46794b9"
     else
-      url "https://github.com/andresgarcia29/harness-daemon/releases/download/v0.52.4/harnessd-darwin-amd64"
-      sha256 "bdf41077397155ba3f26bc616786579be8c05084e7c8b8c9ba776cb966a8a2e0"
+      url "https://github.com/andresgarcia29/harness-daemon/releases/download/v0.52.5/harnessd-darwin-amd64"
+      sha256 "df4ccefef1269064f808cccfb7e340932e2026d0457c342f3b82f20ac6e6f41a"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/andresgarcia29/harness-daemon/releases/download/v0.52.4/harnessd-linux-arm64"
-      sha256 "132ae76a69f95e4102a951022e3ed5c0220284c017d6d41f1716874820d0a32d"
+      url "https://github.com/andresgarcia29/harness-daemon/releases/download/v0.52.5/harnessd-linux-arm64"
+      sha256 "da8f064b830654d5b1f890bcd936bad3202eede0b328b1ee36a3b04c76113f63"
     else
-      url "https://github.com/andresgarcia29/harness-daemon/releases/download/v0.52.4/harnessd-linux-amd64"
-      sha256 "3446a6aa439b67fbdbe37f6d08e12c49aa336ad79a863e13f2e6a4204af8cc54"
+      url "https://github.com/andresgarcia29/harness-daemon/releases/download/v0.52.5/harnessd-linux-amd64"
+      sha256 "cdd381e6148dbe2a7659391880fdd2093c0331020b530811a799be5f7f6d48e4"
     end
   end
 
@@ -32,6 +32,6 @@ class Harness < Formula
   end
 
   test do
-    assert_match "0.52.4", shell_output("#{bin}/harness version")
+    assert_match "0.52.5", shell_output("#{bin}/harness version")
   end
 end
