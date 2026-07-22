@@ -1,0 +1,41 @@
+# El tap se actualiza SOLO: jala el último release de harness-daemon (dato
+# público, sin auth) y se pushea a sí mismo con su propio GITHUB_TOKEN.
+# Así no existe ningún PAT cross-repo en el sistema: el daemon publica
+# binarios y este repo los referencia. Corre cada 6h y a demanda.
+name: update-formula
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: andresgarcia29/harness-daemon
+          path: daemon
+      - name: regenerar formula si hay release nuevo
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          latest="$(gh release view -R andresgarcia29/harness-daemon --json tagName -q .tagName)"
+          ver="${latest#v}"
+          have="$(grep -m1 'version "' Formula/harness.rb | sed 's/.*version "\(.*\)".*/\1/' || true)"
+          if [ "$ver" = "$have" ]; then echo "formula al día ($have)"; exit 0; fi
+          mkdir -p daemon/dist
+          gh release download "$latest" -R andresgarcia29/harness-daemon \
+            --pattern SHA256SUMS --dir daemon/dist --clobber
+          (cd daemon && ./scripts/gen-formula.sh "$ver")
+          mkdir -p Formula
+          cp daemon/dist/harness.rb Formula/harness.rb
+          git config user.name "update-formula[bot]"
+          git config user.email "actions@github.com"
+          git add Formula/harness.rb
+          git commit -m "harness v$ver (auto)"
+          git push
